@@ -83,9 +83,14 @@ import fs from "node:fs/promises";
 
 
 async function procesarArchivo(callback) {
-    const data = await fs.readFile("input.txt", "utf8");
-    await fs.writeFile("output.txt", data.toUpperCase());
-    callback(null, data);
+    try {
+        const data = await fs.readFile("input.txt", "utf8");
+        await fs.writeFile("output.txt", data.toUpperCase());
+        callback(null, data);
+
+    } catch (error) {
+        callback(error);
+    }
 
 }
 
@@ -96,3 +101,40 @@ await procesarArchivo((err, data) => {
     console.log("Archivo procesado");
     console.log(data);
 });
+
+// Ejercicio 5 
+async function delay(time) {
+    let count = 0
+    const interval = setInterval(() => {
+        console.log(count++);
+    }, 1000);
+
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            clearInterval(interval)
+            resolve();
+        }, time);
+    })
+}
+
+// delay(4000).then(() => {
+//     console.log("Hola mundo");
+// })
+
+// console.log(process.env);
+// process.env["TONY"] = 3000;
+// console.log(process.env);
+
+let a = 10
+let b = 20
+function sum() {
+    let a = 20
+    { 
+        let b = 30
+        return a+b
+    }
+}
+
+console.log(sum());
+
+
