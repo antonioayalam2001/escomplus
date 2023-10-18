@@ -1,33 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function App () {
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className='h-screen w-screen  backgroundBlueGradient p-8'>
+        {/* Componente de comentario */}
+        <div className='px-6 py-4 bg-background-300 rounded-xl flex p-4 gap-6 w-fit border-[6px] border-l-4 border-white shadow-boxContainer text-white'>
+          {/* UserIMG and tags */}
+          <div className='flex flex-col'>
+            {/* UserImg */}
+            <div className='rounded-full bg-pink-200 h-12 w-12 '></div>
+            {/* TAGS */}
+            <div></div>
+          </div>
+          {/* Nombre, comentario rating */}
+          <div className='flex flex-col'>
+            <h3>Mora Ayala Jose Antonio</h3>
+            <p>La profesora huele bien</p>
+            <p>Rating: 5</p>
+
+          </div>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
